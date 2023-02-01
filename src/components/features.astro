@@ -1,0 +1,59 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon";
+
+const features = [
+  {
+    title: "Get Free Mainnet Forks",
+    description:
+      "Build your dev and test environments on the latest mainnet state with a fork RPC endpoints.",
+    icon: "carbon:fork",
+  },
+  {
+    title: "React to On-Chain Events",
+    description:
+      "Subscribe to on-chain events and trigger actions in your app.",
+    icon: "codicon:github-action",
+  },
+  {
+    title: "Build dApp previews",
+    description:
+      "You can build dapp previews, where users can interact with your dapp without doing actual transactions",
+    icon: "fluent:preview-link-20-regular",
+  },
+  {
+    title: "Custom Forks",
+    description:
+      "Get a custom fork that you control, with the state you want, and the config you need.",
+    icon: "carbon:fork",
+  },
+];
+---
+
+<div class="mt-16 md:mt-0">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    What can you do with Tantheta?
+  </h2>
+  <p class="text-lg mt-4 text-slate-600">
+    Tantheta provides a set of Services that you can use to develop, test and
+    manage your smart contract projects.
+  </p>
+</div>
+
+<div class="grid sm:grid-cols-1 md:grid-cols-2 mt-16 gap-16">
+  {
+    features.map((item) => (
+      <div class="flex gap-4 items-start shadow-xl rounded-xl px-8 py-12 hover:shadow-2xl ">
+        <div class="mt-1 bg-black rounded-full  p-2 w-12 h-12 shrink-0">
+          <Icon class="text-white" name={item.icon} />
+        </div>
+        <div>
+          <h3 class="font-semibold text-2xl">{item.title}</h3>{" "}
+          <p class="text-slate-500 mt-2 text-lg leading-relaxed">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    ))
+  }
+</div>
