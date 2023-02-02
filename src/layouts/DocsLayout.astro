@@ -20,14 +20,10 @@ const docsTableOfContents = {
 
 <Layout title={frontmatter.title}>
   <Container>
-    <div class="flex flex-col items-center justify-center pt-12">
-      <h1 class="text-2xl font-light">{frontmatter.description}</h1>
-      <p class="text-gray-500">{getFormattedDate(frontmatter.date)}</p>
-    </div>
-    <div class="flex items-start justify-center pt-12">
+    <div class="lg:flex items-start justify-center">
       <!-- Left Sidebar -->
       <div
-        class="sticky invisible lg:visible top-10 left-0 flex flex-col items-start justify-center pt-12 border-r border-gray-200 pr-4 w-1/7">
+        class="sticky hidden lg:block top-10 left-0 flex flex-col items-start justify-center pt-12 border-r border-gray-200 pr-4 w-1/7">
         {
           Object.entries(docsTableOfContents).map(([section, links]) => {
             return (
@@ -64,19 +60,20 @@ const docsTableOfContents = {
         }
       </div>
 
-      <div class="mx-auto prose prose-lg mt-6">
+      <div class="grow mx-auto prose prose-lg mt-6">
         <slot />
       </div>
 
       <!-- Right Sidebar -->
       <div
-        class="sticky invisible lg:visible top-10 right-0 flex flex-col items-start justify-center pt-12 border-l border-gray-200 pl-4 w-1/5">
+        class="sticky hidden lg:block top-10 right-0 flex flex-col items-start justify-center pt-12 border-l border-gray-200 pl-4 w-1/5">
         <h1 class="text-xl font-bold">On this Page</h1>
-        {
-          headings.map((heading: MarkdownHeading) => {
-            return (
-              <a
-                class="py-1 text-sm font-medium leading-5 text-gray-900
+        <ul>
+          {
+            headings.map((heading: MarkdownHeading) => {
+              return (
+                <li
+                  class="py-1 text-sm font-medium leading-5 text-gray-900
                 hover:text-sky-700
                 transition duration-150 ease-in-out
                 cursor-pointer
@@ -86,13 +83,13 @@ const docsTableOfContents = {
                 border-b
                 text-lg
                 font-light
-              "
-                href={`#${heading.slug}`}>
-                {heading.text}
-              </a>
-            );
-          })
-        }
+              ">
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </li>
+              );
+            })
+          }
+        </ul>
       </div>
     </div>
     <div
