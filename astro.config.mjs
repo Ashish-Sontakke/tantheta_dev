@@ -11,7 +11,14 @@ export default defineConfig({
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
-    mdx(),
+    mdx(
+      {
+        drafts: true,
+      }
+    ),
     sitemap(),
   ],
+  markdown: {
+    drafts: true,
+  }
 });

@@ -1,0 +1,116 @@
+---
+import Container from "@components/container.astro";
+import { getFormattedDate } from "@utils/all";
+import { log } from "astro/dist/core/logger/core";
+import Layout from "./Layout.astro";
+import type { MarkdownHeading } from "astro";
+import { Icon } from "astro-icon";
+
+const { headings, frontmatter } = Astro.props;
+const docsTableOfContents = {
+  Introduction: [{ text: "Introduction", link: "/docs/introduction" }],
+  Forks: [
+    { text: "Fork Networks", link: "/docs/forks" },
+    { text: "Custom Forks", link: "/docs/custom-forks" },
+  ],
+  Events: [],
+  Contracts: [],
+};
+---
+
+<Layout title={frontmatter.title}>
+  <Container>
+    <div class="flex flex-col items-center justify-center pt-12">
+      <h1 class="text-2xl font-light">{frontmatter.description}</h1>
+      <p class="text-gray-500">{getFormattedDate(frontmatter.date)}</p>
+    </div>
+    <div class="flex items-start justify-center pt-12">
+      <!-- Left Sidebar -->
+      <div
+        class="sticky invisible lg:visible top-10 left-0 flex flex-col items-start justify-center pt-12 border-r border-gray-200 pr-4 w-1/7">
+        {
+          Object.entries(docsTableOfContents).map(([section, links]) => {
+            return (
+              <div>
+                <h1 class="text-lg">{section}</h1>
+                <ul>
+                  {links.map(({ text, link }) => {
+                    return (
+                      <li class="px-4 py-2">
+                        <a
+                          class="py-1 text-sm font-medium leading-5 text-gray-900
+                        hover:text-sky-700
+                        transition duration-150 ease-in-out
+                        cursor-pointer
+                        hover:border-sky-700
+                        box-shadow: inset 0 -1px 0 0 #e2e8f0
+                        hover:bg-sky-100
+                        px-4
+                        py-2
+                        text-lg
+                        font-light
+                        rounded-md
+                      "
+                          href={link}>
+                          {text}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            );
+          })
+        }
+      </div>
+
+      <div class="mx-auto prose prose-lg mt-6">
+        <slot />
+      </div>
+
+      <!-- Right Sidebar -->
+      <div
+        class="sticky invisible lg:visible top-10 right-0 flex flex-col items-start justify-center pt-12 border-l border-gray-200 pl-4 w-1/5">
+        <h1 class="text-xl font-bold">On this Page</h1>
+        {
+          headings.map((heading: MarkdownHeading) => {
+            return (
+              <a
+                class="py-1 text-sm font-medium leading-5 text-gray-900
+                hover:text-sky-700
+                transition duration-150 ease-in-out
+                cursor-pointer
+                box-shadow: inset 0 -1px 0 0 #e2e8f0
+                px-4
+                pt-2
+                border-b
+                text-lg
+                font-light
+              "
+                href={`#${heading.slug}`}>
+                {heading.text}
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+    <div
+      class="flex items-center justify-around pt-12 space-x-4 text-center text-gray-500 text-sm font-medium leading-5 tracking-wide uppercase">
+      {
+        frontmatter.prev && (
+          <button class="font-medium text-lg py-2 px-4 rounded-lg border ">
+            {frontmatter.prev}
+          </button>
+        )
+      }
+      {
+        frontmatter.next && (
+          <button class="flex font-medium text-lg py-2 px-4 rounded-lg border">
+            {frontmatter.next}
+          </button>
+        )
+      }
+    </div>
+  </Container>
+</Layout>
