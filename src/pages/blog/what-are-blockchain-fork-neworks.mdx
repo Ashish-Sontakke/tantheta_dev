@@ -1,0 +1,63 @@
+---
+title: "What are Fork Networks"
+excerpt: "Sint sit cillum pariatur eiusmod nulla pariatur ipsum. Sit laborum anim qui mollit tempor pariatur nisi minim dolor. Aliquip et adipisicing sit sit fugiat"
+publishDate: "2023-02-02T15:36:19.399Z"
+category: "Blockchain"
+layout: "@layouts/BlogLayout.astro"
+image: "https://images.unsplash.com/photo-1542393545-10f5cde2c810?&fit=crop&w=430&h=240"
+author: "Ashish Sontakke"
+tags: [forks, smart-contracts, tantheta]
+---
+
+Mainnet Fork Networks are alternative implementations of the original blockchain network that allow developers to test and develop applications in a simulated environment without risking real assets.
+
+Smart contracts need to be tested before they can be deployed on a blockchain network. This is because smart contracts are immutable and cannot be changed once they are deployed. 
+If a smart contract has a bug, it can cause a lot of damage to the blockchain network and its users. 
+
+There are many ways to test smart contracts. Most developers are already use Ganache [provided by Truffle] or Hardhat [provided by Hardhat] to test their smart contracts.
+These tools are great for testing smart contracts, but they are not suitable for certain usecases.
+for example
+ - if your smart contract interacts with other contracts on the blockchain network which are not deployed on your local machine.
+ - if your smart contract requires to use Tokens like USDC / WETH or any other assets that are not available on your local machine.
+
+For the above use cases and many more, you need to use a Mainnet Fork Network.
+
+Hardhat/Truffle Fork networks are temporary networks that are created by forking the main Ethereum network from a certain block number.
+Meaning all the blocks till that block number are fetched only when required and new blocks are created for your transactions.
+
+This allows you to test your contracts on the main Ethereum network but doing any actual transactions on the network.
+
+You can do this localy using Hardhat or Truffle or you can use a service like Alchemy or Infura to do get the RPC of the network you want to fork.
+
+## Here to setup a fork network
+
+Hardhat
+
+```bash
+npx hardhat node --fork <network-rpc-of-the-network>
+```
+
+Truffle
+
+```bash
+ganache --fork <network-rpc-of-the-network>
+```
+
+### Tantheta Forks
+
+In Most of usecases you should use these Local fork networks to test your contracts.
+but sometimes it is required to have these netowrks available on the cloud.
+
+Like 
+
+- To build a preview of your dapp where users can interact with dapp-previews or demo-dapps without actually spending any money.
+- To setup CI/CD pipeline for your contracts.
+- To Beta test your contracts before deploying them on mainnet.
+- To simulate transactions on Mainnet.
+
+For these usecases you need to have cloud based fork networks. which can be costly to setup and maintain.
+
+So we have setup a cloud based fork network for you to use. [Tantheta](https://tantheta.dev) 
+We provide completly free RPC endpoints for you to use.
+or you can create your own fork network on Tantheta and use it for your usecases which will be only accessible to you.
+

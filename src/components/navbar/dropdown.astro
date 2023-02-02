@@ -24,20 +24,27 @@ const { title, lastItem, children } = Astro.props;
     <DropdownItems>
       <div
         class:list={[
-          "lg:absolute  w-full  lg:w-48",
+          "lg:absolute  w-full  lg:w-96",
           lastItem
             ? "lg:right-0 origin-top-right"
             : "lg:left-0 origin-top-left",
         ]}>
         <div
-          class="px-3 lg:py-2 lg:bg-white lg:rounded-md lg:shadow lg:border flex flex-col">
+          class="px-10 lg:py-2 lg:bg-none backdrop-blur-lg lg:rounded-md lg:shadow lg:border flex flex-col">
           {
             children.map((item) => (
-              <a
-                href={item.path}
-                class="py-1 text-gray-600 hover:text-gray-900">
-                {item.title}
-              </a>
+              <div class="flex flex-row border-b justify-between items-center">
+                <a
+                  href={item.path}
+                  class="py-3 text-gray-900 hover:text-gray-900">
+                  {item.title}
+                </a>
+                {item.tag && (
+                  <span class="px-2 py-1 text-xs rounded-full text-sky-500">
+                    {item.tag}
+                  </span>
+                )}
+              </div>
             ))
           }
         </div>
