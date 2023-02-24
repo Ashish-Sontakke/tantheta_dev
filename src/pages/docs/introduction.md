@@ -12,6 +12,5 @@ several tools to help you build your smart contracts.
 ## What can you do with Tantheta?
 
 - ✅ **Mainnet forks** 
-- ✅ **Event Actions**
-- ✅ **Contracts GUI**
-- ✅ **Debug Transactions**  
+- ✅ **Event Hooks**
+- *More things in development*
