@@ -31,6 +31,32 @@ const docsTableOfContents = {
                 <h1 class="text-lg">{section}</h1>
                 <ul>
                   {links.map(({ text, link }) => {
+                      // if the link is the current page, add the active class
+                      const isActive = Astro.request.url.includes(link);
+                      if (isActive) {
+                        return (
+                          <li class="px-4 py-2">
+                            <a
+                              class="py-1 text-sm font-medium leading-5 text-gray-900
+                            hover:text-sky-700
+                            transition duration-150 ease-in-out
+                            cursor-pointer
+                            hover:border-sky-700
+                            box-shadow: inset 0 -1px 0 0 #e2e8f0
+                            hover:bg-sky-100
+                            px-4
+                            py-2
+                            text-lg
+                            font-light
+                            rounded-md
+                            bg-sky-100
+                          "
+                              href={link}>
+                              {text}
+                            </a>
+                          </li>
+                        );
+                      }
                     return (
                       <li class="px-4 py-2">
                         <a
@@ -76,15 +102,8 @@ const docsTableOfContents = {
                   class="py-1 text-sm font-medium leading-5 text-gray-900
                 hover:text-sky-700
                 transition duration-150 ease-in-out
-                cursor-pointer
-                box-shadow: inset 0 -1px 0 0 #e2e8f0
-                px-4
-                pt-2
-                border-b
-                text-lg
-                font-light
-              ">
-                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                cursor-pointer box-shadow: inset 0 -1px 0 0 #e2e8f0 px-4 pt-2 border-b text-lg font-light">
+                  <a   href={`#${heading.slug}`}>{heading.text}</a>
                 </li>
               );
             })

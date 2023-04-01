@@ -20,15 +20,13 @@ Once you have created a API key from your <a href="https://app.tantheta.dev/fork
 The RPCs are provided in the following format:
 
 ```bash
-https://fork.tantheta.dev/<network>/<apiKey>
+https://forks.tantheta.dev/<network>/<apiKey>
 ```
 
 
 ### Supported Networks
 
 Tantheta currently only supports the Forking of **Ethereum Mainnet**. We are working on adding support for other networks.
-
-However, you can create custom forks of other networks using the [Custom Forks](/docs/custom-forks) feature.
 
 ### Limitations
 
