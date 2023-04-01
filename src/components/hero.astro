@@ -5,47 +5,36 @@ import Link from "@components/ui/link.astro";
 import { Icon } from "astro-icon";
 ---
 
-<main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
-  <div class="py-6 md:order-1 hidden md:block">
-    <Picture
-      src={heroImage}
-      alt="Astronaut in the air"
-      widths={[200, 400, 600]}
-      aspectRatio="4:3"
-      sizes="(max-width: 800px) 100vw, 620px"
-      loading="eager"
-      format="avif"
-    />
-  </div>
-  <div>
+<main class="pt-16 pb-8 md:pt-12 md:pb-24">
+  <div class="flex flex-col items-center text-center">
     <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-      Easily develop and engage with smart contracts.
+      class="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 bg-clip-text text-transparent text-5xl font-black text-5xl lg:text-6xl xl:text-6xl lg:tracking-tight xl:tracking-tighter max-w-3xl">
+      Simulate mainnet transactions, build previews of dapps.
     </h1>
-    <p class="text-lg mt-4 text-slate-600 max-w-xl">
-      Tantheta is a platform that allows to develop smart contracts quicker,
-      easier and more efficiently, and interact with them in a more intuitive
-      way.
-    </p>
-    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+    <!-- <p class="text-xl mt-4 text-slate-600 max-w-3xl">
+      Save time and money by avoiding mainnet testing
+      costs
+      Simulate transactions without spending on mainnet, Build previews of dapps
+      to showcase functionality,
+    </p> -->
+    <div class="mt-6 flex sm:flex-row gap-3">
       <Link
         href="#"
         href="https://app.tantheta.com"
         target="_blank"
-        class="flex gap-1 items-center justify-center"
+        class="text-xl animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 flex gap-1 items-center justify-center"
         rel="noopener">
-        <Icon class="text-white w-5 h-5" name="ci:external-link" />
-        App
+        <Icon class="hidden lg:block md:block text-white w-5 h-5" name="ci:external-link" />
+        Try it out, It's free
       </Link>
       <Link
         size="lg"
         style="outline"
         rel="noopener"
         href="/docs"
-        class="flex gap-1 items-center justify-center">
-        <Icon class="text-black w-4 h-4" name="simple-icons:readthedocs" />
-        Docs
+        class="flex gap-1 items-center justify-center ">
+        <Icon class="hidden lg:block md:block text-black w-4 h-4" name="simple-icons:readthedocs" />
+        Checkout what can you do
       </Link>
     </div>
   </div>

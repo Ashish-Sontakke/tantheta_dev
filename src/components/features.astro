@@ -4,52 +4,40 @@ import { Icon } from "astro-icon";
 
 const features = [
   {
-    title: "Get Free Mainnet Forks",
+    title: "Simulate All your transactions before you send to mainnet",
     description:
-      "Build your dev and test environments on the latest mainnet state with a fork RPC endpoints.",
+      "Execute transactions on a forked version of the mainnet, and see the results before you send them to mainnet.",
     icon: "carbon:fork",
   },
   {
-    title: "React to On-Chain Events",
-    description:
-      "Subscribe to on-chain events and trigger actions in your app.",
-    icon: "codicon:github-action",
+    title: "Test contracts to see how they behave on mainnet",
+    description: "Deploy contracts on forked network to test the complete lifecycle of your contracts & how they behave on mainnet.",
+    icon: "carbon:fork", 
   },
   {
-    title: "Build dApp previews",
-    description:
-      "You can build dapp previews, where users can interact with your dapp without doing actual transactions",
-    icon: "fluent:preview-link-20-regular",
-  },
-  {
-    title: "Custom Forks",
-    description:
-      "Get a custom fork that you control, with the state you want, and the config you need.",
+    title: "Add test modes to your dapps",
+    description: "Use tantheta fork RPCs to Let the users experience your dapp in a test mode, where they can test out the dapp without spending any real money.",
     icon: "carbon:fork",
-  },
+  }
 ];
 ---
 
 <div class="mt-16 md:mt-0">
-  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+  <h2 class="text-4xl lg:text-5xl font-400 lg:tracking-tight text-center">
     What can you do with Tantheta?
   </h2>
-  <p class="text-lg mt-4 text-slate-600">
-    Tantheta provides a set of Services that you can use to develop, test and
-    manage your smart contract projects.
-  </p>
 </div>
 
-<div class="grid sm:grid-cols-1 md:grid-cols-2 mt-16 gap-16">
+<div class="grid sm:grid-cols-1 md:grid-cols-3 mt-16 gap-8">
   {
     features.map((item) => (
-      <div class="flex gap-4 items-start shadow-xl rounded-xl px-8 py-12 hover:shadow-2xl ">
-        <div class="mt-1 bg-black rounded-full  p-2 w-12 h-12 shrink-0">
+      <div class="flex gap-4 items-start rounded-xl p-4 shadow hover:shadow-2xl p-2 m-2">
+        <div class="mt-1 bg-black rounded-full p-2 w-12 h-12 shrink-0">
           <Icon class="text-white" name={item.icon} />
         </div>
         <div>
-          <h3 class="font-semibold text-2xl">{item.title}</h3>{" "}
-          <p class="text-slate-500 mt-2 text-lg leading-relaxed">
+          <h3 class="text-2xl">{item.title}</h3>{" "}
+          <p class="text-slate-500 mt-2 text leading-relaxed">
             {item.description}
           </p>
         </div>
