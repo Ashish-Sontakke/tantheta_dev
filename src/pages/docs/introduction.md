@@ -4,11 +4,9 @@ description: "Introduction"
 layout: "@layouts/DocsLayout.astro"
 ---
 
-## Welcome to Tantheta!
+### Welcome to Tantheta!
 
 We will be adding information and guides here about how to use Tantheta.
-
-## What services do we provide?
 
 - ✅ **Fork Networks** are hardhat node forks of ethereum network, which simulate the mainnet
 

@@ -8,7 +8,6 @@ layout: "@layouts/DocsLayout.astro"
 
 Tantheta provides a fork network to help you test your smart contracts. You can use  use these network RPCs to
  - Test your smart contracts
- - Setup CI/CD pipelines for your smart contracts
  - Build Preview dApps for your smart contracts
  - Beta test your smart contracts & dApps
 
