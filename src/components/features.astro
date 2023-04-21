@@ -11,37 +11,39 @@ const features = [
   },
   {
     title: "Test contracts to see how they behave on mainnet",
-    description: "Deploy contracts on forked network to test the complete lifecycle of your contracts & how they behave on mainnet.",
-    icon: "carbon:fork", 
+    description:
+      "Deploy contracts on forked network to test the complete lifecycle of your contracts & how they behave on mainnet.",
+    icon: "carbon:fork",
   },
   {
     title: "Add test modes to your dapps",
-    description: "Use tantheta fork RPCs to Let the users experience your dapp in a test mode, where they can test out the dapp without spending any real money.",
+    description:
+      "Use tantheta fork RPCs to Let the users experience your dapp in a test mode, where they can test out the dapp without spending any real money.",
     icon: "carbon:fork",
-  }
+  },
 ];
 ---
 
-<div class="mt-16 md:mt-0">
-  <h2 class="text-4xl lg:text-5xl font-400 lg:tracking-tight text-center">
-    What can you do with Tantheta?
-  </h2>
-</div>
+<div class="bg-sky-100 p-6 py-32 rounded-xl m-6">
+  <div class="mt-16 md:mt-0">
+    <h2 class="text-4xl lg:text-5xl font-400 lg:tracking-tight text-center">
+      What can you do with Tantheta?
+    </h2>
+  </div>
 
-<div class="grid sm:grid-cols-1 md:grid-cols-3 mt-16 gap-8">
-  {
-    features.map((item) => (
-      <div class="flex gap-4 items-start rounded-xl p-4 shadow hover:shadow-2xl p-2 m-2">
-        <div class="mt-1 bg-black rounded-full p-2 w-12 h-12 shrink-0">
-          <Icon class="text-white" name={item.icon} />
+  <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-16 gap-8">
+    {
+      features.map((item) => (
+        <div class="flex flex-col gap-4 items-start rounded-xl p-8 hover:shadow-2xl m-2">
+          <div class="mt-1 bg-black rounded-full p-2 w-12 h-12 shrink-0">
+            <Icon class="text-white" name={item.icon} />
+          </div>
+          <div>
+            <h3 class="text-2xl">{item.title}</h3>{" "}
+            <p class="mt-2 text-slate-600 leading-relaxed">{item.description}</p>
+          </div>
         </div>
-        <div>
-          <h3 class="text-2xl">{item.title}</h3>{" "}
-          <p class="text-slate-500 mt-2 text leading-relaxed">
-            {item.description}
-          </p>
-        </div>
-      </div>
-    ))
-  }
+      ))
+    }
+  </div>
 </div>
