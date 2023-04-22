@@ -4,6 +4,7 @@ import { getFormattedDate } from "@utils/all";
 import { log } from "astro/dist/core/logger/core";
 import Layout from "./Layout.astro";
 import { Picture } from "@astrojs/image/components";
+import { MarkdownInstance } from "astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -14,10 +15,7 @@ const { frontmatter } = Astro.props;
       <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
         {frontmatter.category}
       </span>
-      <Picture
-        sizes="100vw"
-        aspectRatio={1.5}
-        widths={[300, 600, 900, 1200]}
+      <img
         src={frontmatter.image}
         alt={frontmatter.title}
         class="rounded-md w-full object-contain"
