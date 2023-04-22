@@ -5,6 +5,7 @@ import { log } from "astro/dist/core/logger/core";
 import Layout from "./Layout.astro";
 import type { MarkdownHeading } from "astro";
 import { Icon } from "astro-icon";
+import Link from "@components/ui/link.astro";
 
 const { headings, frontmatter } = Astro.props;
 const docsTableOfContents = {
@@ -20,7 +21,7 @@ const docsTableOfContents = {
 
 <Layout title={frontmatter.title}>
   <Container>
-    <div class="lg:flex items-start justify-center">
+    <div class="lg:flex items-start justify-center mx-auto">
       <!-- Left Sidebar -->
       <div
         class="sticky hidden lg:block top-10 left-0 flex flex-col items-start justify-center pt-12 border-r border-gray-200 pr-4 w-1/7">
@@ -102,8 +103,8 @@ const docsTableOfContents = {
                   class="py-1 text-sm font-medium leading-5 text-gray-900
                 hover:text-sky-700
                 transition duration-150 ease-in-out
-                cursor-pointer box-shadow: inset 0 -1px 0 0 #e2e8f0 px-4 pt-2 border-b text-lg font-light">
-                  <a   href={`#${heading.slug}`}>{heading.text}</a>
+                cursor-pointer box-shadow: inset 0 -1px 0 0 #e2e8f0 px-4 pt-2  text-lg font-light">
+                  <a style={"muted"}   href={`#${heading.slug}`}>{heading.text}</a>
                 </li>
               );
             })

@@ -5,6 +5,7 @@ import Sectionhead from "@components/sectionhead.astro";
 import Layout from "@layouts/Layout.astro";
 import { getFormattedDate } from "@utils/all";
 import { log } from "astro/dist/core/logger/core";
+const correctURL = (post) => import.meta.env.PROD ? post.frontmatter.image : import("../" + post.frontmatter.image) as unknown as string
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
 const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
@@ -20,7 +21,7 @@ console.log(posts[0].frontmatter.image);
     <Sectionhead>
       <Fragment slot="title">Our Blog</Fragment>
       <Fragment slot="desc">
-        We write about building startups and thoughts going on our mind.
+        We write about blockchain devtools and the latest in the industry.
       </Fragment>
     </Sectionhead>
   </Container>
@@ -31,15 +32,11 @@ console.log(posts[0].frontmatter.image);
           <li>
             <a href={post.url}>
               <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                <Picture
-                  src={post.frontmatter.image}
-                  widths={[200, 400, 800]}
-                  sizes="(max-width: 800px) 100vw, 800px"
-                  aspectRatio="16:10"
-                  alt="Thumbnail"
-                  loading={index === 0 ? "eager" : "lazy"}
-                  class="w-full rounded-md aspect-video"
-                />
+                <img
+        src={post.frontmatter.image}
+        alt={post.frontmatter.title}
+        class="rounded-md w-full object-contain"
+      />
                 <div>
                   <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
                     {post.frontmatter.category}
